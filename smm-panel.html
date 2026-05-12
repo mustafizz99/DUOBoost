@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DUOBoost | সেরা SMM প্যানেল বাংলাদেশ</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #05060a;
+    --bg2: #0c0e16;
+    --bg3: #131726;
+    --accent: #6c63ff;
+    --accent2: #00e5a0;
+    --accent3: #ff5e7e;
+    --text: #f0f1ff;
+    --muted: #8890b5;
+    --border: rgba(108,99,255,0.15);
+    --card: rgba(255,255,255,0.03);
+    --glow: rgba(108,99,255,0.4);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  h1,h2,h3,h4 { font-family: 'Syne', sans-serif; }
+
+  /* ─── NOISE TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%; height: 70px;
+    background: rgba(5,6,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px; font-weight: 800;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: 14px;
+    font-weight: 500; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .btn-nav {
+    background: var(--accent); color: #fff;
+    padding: 9px 22px; border-radius: 8px;
+    font-size: 14px; font-weight: 600;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .btn-nav:hover { opacity: 0.85; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex; align-items: center;
+    padding: 100px 5% 60px;
+    position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; width: 700px; height: 700px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(108,99,255,0.18) 0%, transparent 70%);
+    top: -200px; right: -200px; pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute; width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,229,160,0.10) 0%, transparent 70%);
+    bottom: -100px; left: 10%; pointer-events: none;
+  }
+  .hero-inner { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; gap: 60px; align-items: center; }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(108,99,255,0.12);
+    border: 1px solid rgba(108,99,255,0.3);
+    padding: 6px 16px; border-radius: 999px;
+    font-size: 13px; font-weight: 500; color: #a09fff;
+    margin-bottom: 28px;
+  }
+  .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); display: inline-block; animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
+  h1.hero-title {
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 800; line-height: 1.1;
+    margin-bottom: 22px;
+  }
+  h1.hero-title .accent { color: var(--accent); }
+  h1.hero-title .accent2 { color: var(--accent2); }
+  .hero-sub { font-size: 17px; color: var(--muted); margin-bottom: 40px; max-width: 480px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent); color: #fff;
+    padding: 14px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0 30px rgba(108,99,255,0.35);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(108,99,255,0.5); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.15); color: var(--text);
+    padding: 14px 32px; border-radius: 10px;
+    font-size: 15px; font-weight: 500;
+    text-decoration: none; display: inline-block;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--accent); background: rgba(108,99,255,0.07); }
+
+  /* ─── LOGIN CARD ─── */
+  .hero-card {
+    flex: 0 0 360px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px 32px;
+    position: relative;
+  }
+  .hero-card h3 { font-size: 20px; margin-bottom: 24px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 7px; }
+  .form-group input {
+    width: 100%; background: var(--bg2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 9px; padding: 11px 14px;
+    color: var(--text); font-size: 14px;
+    outline: none; transition: border-color 0.2s;
+  }
+  .form-group input:focus { border-color: var(--accent); }
+  .btn-form {
+    width: 100%; background: var(--accent); color: #fff;
+    padding: 13px; border: none; border-radius: 9px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    margin-top: 6px; transition: opacity 0.2s;
+  }
+  .btn-form:hover { opacity: 0.88; }
+  .form-foot { text-align: center; margin-top: 16px; font-size: 13px; color: var(--muted); }
+  .form-foot a { color: var(--accent); text-decoration: none; }
+
+  /* ─── STATS ─── */
+  .stats { padding: 60px 5%; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stats-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
+
+  /* ─── SECTION COMMON ─── */
+  section { padding: 90px 5%; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-tag {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    color: var(--accent); text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section-title { font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; margin-bottom: 16px; }
+  .section-sub { font-size: 16px; color: var(--muted); max-width: 540px; }
+  .section-head { margin-bottom: 56px; }
+
+  /* ─── FEATURES GRID ─── */
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+  .feat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 24px;
+    transition: border-color 0.25s, transform 0.25s;
+  }
+  .feat-card:hover { border-color: rgba(108,99,255,0.4); transform: translateY(-4px); }
+  .feat-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(108,99,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px; margin-bottom: 18px;
+  }
+  .feat-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .feat-card p { font-size: 14px; color: var(--muted); }
+
+  /* ─── SERVICES ─── */
+  .services-section { background: var(--bg2); }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .service-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px 22px;
+    transition: all 0.25s; cursor: pointer;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0; transition: opacity 0.25s;
+  }
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover { border-color: rgba(108,99,255,0.3); transform: translateY(-3px); }
+  .svc-emoji { font-size: 28px; margin-bottom: 12px; }
+  .svc-name { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .svc-desc { font-size: 13px; color: var(--muted); }
+  .svc-tag {
+    display: inline-block; margin-top: 12px;
+    background: rgba(0,229,160,0.1); color: var(--accent2);
+    border: 1px solid rgba(0,229,160,0.2);
+    font-size: 11px; padding: 3px 10px; border-radius: 999px;
+    font-weight: 600;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; position: relative; }
+  .step { text-align: center; padding: 32px 24px; }
+  .step-num {
+    width: 52px; height: 52px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #9b93ff);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 800;
+    margin: 0 auto 20px;
+    box-shadow: 0 0 30px rgba(108,99,255,0.35);
+  }
+  .step h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .step p { font-size: 14px; color: var(--muted); }
+
+  /* ─── PRICING ─── */
+  .pricing-section { background: var(--bg2); }
+  .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .price-card {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 18px; padding: 34px 28px;
+    transition: transform 0.25s;
+  }
+  .price-card.featured {
+    border-color: var(--accent);
+    box-shadow: 0 0 40px rgba(108,99,255,0.2);
+    position: relative;
+  }
+  .price-card:hover { transform: translateY(-4px); }
+  .price-badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff;
+    font-size: 11px; font-weight: 700; padding: 4px 16px; border-radius: 999px;
+    letter-spacing: 0.5px; text-transform: uppercase;
+  }
+  .price-plan { font-size: 13px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .price-num { font-family: 'Syne', sans-serif; font-size: 42px; font-weight: 800; margin-bottom: 4px; }
+  .price-num span { font-size: 18px; font-weight: 400; color: var(--muted); }
+  .price-desc { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+  .price-features { list-style: none; margin-bottom: 28px; }
+  .price-features li { font-size: 14px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 10px; }
+  .price-features li .check { color: var(--accent2); font-weight: 700; }
+  .btn-price {
+    display: block; width: 100%; text-align: center;
+    padding: 13px; border-radius: 10px;
+    font-size: 15px; font-weight: 600;
+    text-decoration: none; cursor: pointer;
+    border: none; transition: all 0.2s;
+  }
+  .btn-price.primary { background: var(--accent); color: #fff; box-shadow: 0 0 20px rgba(108,99,255,0.3); }
+  .btn-price.outline { border: 1px solid rgba(255,255,255,0.12); color: var(--text); background: transparent; }
+  .btn-price:hover { opacity: 0.85; }
+
+  /* ─── PAYMENTS ─── */
+  .pay-logos { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 40px; }
+  .pay-logo {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 10px; padding: 10px 20px;
+    font-size: 13px; font-weight: 600; color: var(--muted);
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .test-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px;
+  }
+  .test-stars { color: #ffd166; font-size: 15px; margin-bottom: 14px; }
+  .test-text { font-size: 14px; color: var(--muted); margin-bottom: 20px; line-height: 1.8; }
+  .test-author { display: flex; align-items: center; gap: 12px; }
+  .test-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent3));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 15px; color: #fff;
+  }
+  .test-name { font-size: 14px; font-weight: 600; }
+  .test-role { font-size: 12px; color: var(--muted); }
+
+  /* ─── FAQ ─── */
+  .faq-section { background: var(--bg2); }
+  .faq-list { max-width: 760px; }
+  .faq-item { border-bottom: 1px solid var(--border); }
+  .faq-q {
+    width: 100%; background: none; border: none;
+    text-align: left; padding: 20px 0;
+    color: var(--text); font-size: 15px; font-weight: 600;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .faq-q .arrow { color: var(--accent); font-size: 18px; transition: transform 0.3s; }
+  .faq-q.open .arrow { transform: rotate(45deg); }
+  .faq-a { font-size: 14px; color: var(--muted); padding: 0 0 18px; display: none; line-height: 1.8; }
+  .faq-a.show { display: block; }
+
+  /* ─── CTA ─── */
+  .cta-section {
+    text-align: center; padding: 100px 5%;
+    position: relative; overflow: hidden;
+  }
+  .cta-glow {
+    position: absolute; width: 600px; height: 400px;
+    background: radial-gradient(ellipse, rgba(108,99,255,0.15) 0%, transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .cta-section h2 { font-size: clamp(28px, 4vw, 52px); font-weight: 800; margin-bottom: 20px; }
+  .cta-section p { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 40px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--bg2); border-top: 1px solid var(--border);
+    padding: 60px 5% 30px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+  .footer-brand p { font-size: 14px; color: var(--muted); margin-top: 12px; max-width: 280px; }
+  .footer-col h5 { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px; }
+  .footer-col a { display: block; font-size: 14px; color: var(--muted); text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--text); }
+  .footer-bottom { border-top: 1px solid var(--border); padding-top: 24px; text-align: center; font-size: 13px; color: var(--muted); }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hero-inner { flex-direction: column; }
+    .hero-card { width: 100%; flex: none; }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    .footer-top { grid-template-columns: 1fr; }
+    .hero-btns { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="#" class="logo">DUOBoost</a>
+  <div class="nav-links">
+    <a href="#services">সার্ভিস</a>
+    <a href="#how">কীভাবে কাজ করে</a>
+    <a href="#pricing">মূল্য</a>
+    <a href="#faq">FAQ</a>
+    <a href="#" class="btn-nav">শুরু করুন</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge"><span></span> বাংলাদেশের #১ SMM প্যানেল</div>
+      <h1 class="hero-title">
+        সোশ্যাল মিডিয়া<br>
+        <span class="accent">গ্রোথ</span> এখন<br>
+        <span class="accent2">সহজ ও সস্তা</span>
+      </h1>
+      <p class="hero-sub">Instagram, Facebook, TikTok, YouTube-সহ সব প্ল্যাটফর্মে ফলোয়ার, লাইক ও ভিউ বাড়ান — মাত্র কয়েক মিনিটে।</p>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">ফ্রি রেজিস্ট্রেশন করুন</a>
+        <a href="#services" class="btn-outline">সার্ভিস দেখুন</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>লগইন করুন</h3>
+      <div class="form-group">
+        <label>ইউজারনেম</label>
+        <input type="text" placeholder="আপনার ইউজারনেম">
+      </div>
+      <div class="form-group">
+        <label>পাসওয়ার্ড</label>
+        <input type="password" placeholder="••••••••">
+      </div>
+      <button class="btn-form">লগইন</button>
+      <div class="form-foot">
+        অ্যাকাউন্ট নেই? <a href="#">সাইন আপ করুন</a><br><br>
+        <a href="#" style="color:var(--muted)">পাসওয়ার্ড ভুলে গেছেন?</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div><div class="stat-num">৫,০০০+</div><div class="stat-label">মোট সার্ভিস</div></div>
+    <div><div class="stat-num">২,৫০,০০০+</div><div class="stat-label">সম্পন্ন অর্ডার</div></div>
+    <div><div class="stat-num">৩৫,০০০+</div><div class="stat-label">সক্রিয় ব্যবহারকারী</div></div>
+    <div><div class="stat-num">২৪/৭</div><div class="stat-label">সাপোর্ট</div></div>
+    <div><div class="stat-num">৯৮%</div><div class="stat-label">সন্তুষ্টি হার</div></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">কেন আমরা সেরা</div>
+      <h2 class="section-title">আমাদের বিশেষ সুবিধাসমূহ</h2>
+      <p class="section-sub">DUOBoost বেছে নিন কারণ আমরা গতি, নিরাপত্তা ও সাশ্রয়ী মূল্যের ক্ষেত্রে কোনো আপোষ করি না।</p>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">⚡</div>
+        <h4>তাৎক্ষণিক ডেলিভারি</h4>
+        <p>অর্ডার দেওয়ার কয়েক মিনিটের মধ্যেই শুরু হয়। ২৪ ঘণ্টার মধ্যে সম্পূর্ণ ডেলিভারি নিশ্চিত।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">💰</div>
+        <h4>বাংলাদেশের সবচেয়ে কম দাম</h4>
+        <p>মাত্র ১ টাকা থেকে শুরু। Bkash, Nagad, Rocket দিয়ে সহজেই পেমেন্ট করুন।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔒</div>
+        <h4>১০০% নিরাপদ</h4>
+        <p>আপনার অ্যাকাউন্টের পাসওয়ার্ড লাগে না। শুধু পেজ বা প্রোফাইল লিংক দিন, বাকি কাজ আমাদের।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <h4>রিয়েল-টাইম ট্র্যাকিং</h4>
+        <p>ড্যাশবোর্ড থেকে যেকোনো সময় আপনার অর্ডারের অগ্রগতি দেখুন।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🔄</div>
+        <h4>API সংযোগ</h4>
+        <p>রিসেলারদের জন্য সম্পূর্ণ API সাপোর্ট। আপনার প্যানেলের সাথে সরাসরি সংযুক্ত করুন।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h4>Drip-Feed অপশন</h4>
+        <p>ধীরে ধীরে স্বাভাবিকভাবে ফলোয়ার বাড়ান। প্রতিদিন নির্দিষ্ট পরিমাণ ডেলিভারি সেট করুন।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">আমাদের সার্ভিস</div>
+      <h2 class="section-title">সব প্ল্যাটফর্মের জন্য সেবা</h2>
+      <p class="section-sub">যেকোনো সোশ্যাল মিডিয়ায় দ্রুত বৃদ্ধির জন্য আমাদের সার্ভিস ব্যবহার করুন।</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="svc-emoji">📘</div>
+        <div class="svc-name">Facebook</div>
+        <div class="svc-desc">পেজ লাইক, পোস্ট রিঅ্যাকশন, ফলোয়ার, কমেন্ট, ভিউ ও আরও অনেক কিছু।</div>
+        <span class="svc-tag">৫০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">📸</div>
+        <div class="svc-name">Instagram</div>
+        <div class="svc-desc">ফলোয়ার, লাইক, ভিউ, কমেন্ট, স্টোরি ভিউ, রিলস ভিউ ও সেভ।</div>
+        <span class="svc-tag">৮০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">▶️</div>
+        <div class="svc-name">YouTube</div>
+        <div class="svc-desc">ভিউ, সাবস্ক্রাইবার, লাইক, কমেন্ট ও ওয়াচ টাইম সার্ভিস।</div>
+        <span class="svc-tag">৬০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">🎵</div>
+        <div class="svc-name">TikTok</div>
+        <div class="svc-desc">ফলোয়ার, লাইক, ভিউ, শেয়ার ও কমেন্ট বাড়ান।</div>
+        <span class="svc-tag">৪০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">🐦</div>
+        <div class="svc-name">Twitter / X</div>
+        <div class="svc-desc">ফলোয়ার, লাইক, রিটুইট, ইম্প্রেশন ও প্রোফাইল ভিজিট।</div>
+        <span class="svc-tag">৩০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">🎵</div>
+        <div class="svc-name">Spotify</div>
+        <div class="svc-desc">প্লে, ফলোয়ার, প্লেলিস্ট ফলোয়ার ও মাসিক শ্রোতা বৃদ্ধি।</div>
+        <span class="svc-tag">২০০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">💼</div>
+        <div class="svc-name">LinkedIn</div>
+        <div class="svc-desc">কানেকশন, ফলোয়ার, পোস্ট লাইক ও প্রোফাইল ভিউ।</div>
+        <span class="svc-tag">১৫০+ সার্ভিস</span>
+      </div>
+      <div class="service-card">
+        <div class="svc-emoji">✈️</div>
+        <div class="svc-name">Telegram</div>
+        <div class="svc-desc">চ্যানেল মেম্বার, পোস্ট ভিউ ও গ্রুপ মেম্বার।</div>
+        <span class="svc-tag">১০০+ সার্ভিস</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">কীভাবে কাজ করে</div>
+      <h2 class="section-title">মাত্র ৪টি ধাপে শুরু করুন</h2>
+      <p class="section-sub">অ্যাকাউন্ট খোলা থেকে রেজাল্ট পাওয়া পর্যন্ত সবকিছু অটোমেটিক।</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">১</div>
+        <h4>অ্যাকাউন্ট তৈরি করুন</h4>
+        <p>ফ্রিতে রেজিস্ট্রেশন করুন। মাত্র ৩০ সেকেন্ড লাগবে, কোনো ক্রেডিট কার্ড নয়।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">২</div>
+        <h4>ব্যালেন্স যোগ করুন</h4>
+        <p>Bkash, Nagad, Rocket, বা ক্রিপ্টোতে ব্যালেন্স রিচার্জ করুন।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">৩</div>
+        <h4>সার্ভিস বেছে নিন</h4>
+        <p>পছন্দের প্ল্যাটফর্ম ও প্যাকেজ সিলেক্ট করে লিংক পেস্ট করুন।</p>
+      </div>
+      <div class="step">
+        <div class="step-num">৪</div>
+        <h4>ফলাফল উপভোগ করুন</h4>
+        <p>অর্ডার দেওয়ার পরপরই কাজ শুরু। রিয়েল-টাইমে ট্র্যাক করুন।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">মূল্য তালিকা</div>
+      <h2 class="section-title">আপনার বাজেটের মধ্যে পরিকল্পনা</h2>
+      <p class="section-sub">ছোট থেকে বড় সব ধরনের ব্যবহারকারীর জন্য আলাদা প্যাকেজ।</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-plan">স্টার্টার</div>
+        <div class="price-num">৳১০ <span>/শুরু</span></div>
+        <div class="price-desc">নতুনদের জন্য আদর্শ</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> সব সার্ভিসে প্রবেশ</li>
+          <li><span class="check">✓</span> Bkash / Nagad পেমেন্ট</li>
+          <li><span class="check">✓</span> ২৪/৭ সাপোর্ট</li>
+          <li><span class="check">✓</span> রিয়েল-টাইম ট্র্যাকিং</li>
+        </ul>
+        <a href="#" class="btn-price outline">এখনই শুরু করুন</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">সবচেয়ে জনপ্রিয়</div>
+        <div class="price-plan">রিসেলার</div>
+        <div class="price-num">৳৫০০ <span>/মাস</span></div>
+        <div class="price-desc">রিসেলার ও ফ্রিল্যান্সারদের জন্য</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> স্পেশাল রিসেলার ছাড়</li>
+          <li><span class="check">✓</span> API সংযোগ সুবিধা</li>
+          <li><span class="check">✓</span> হোয়াইট-লেবেল সার্ভিস</li>
+          <li><span class="check">✓</span> বাল্ক অর্ডার সাপোর্ট</li>
+          <li><span class="check">✓</span> ডেডিকেটেড অ্যাকাউন্ট ম্যানেজার</li>
+        </ul>
+        <a href="#" class="btn-price primary">রিসেলার হিসেবে যোগ দিন</a>
+      </div>
+      <div class="price-card">
+        <div class="price-plan">এজেন্সি</div>
+        <div class="price-num">কাস্টম</div>
+        <div class="price-desc">বড় প্রতিষ্ঠানের জন্য</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span> কাস্টম প্যাকেজ</li>
+          <li><span class="check">✓</span> প্রিমিয়াম সাপোর্ট</li>
+          <li><span class="check">✓</span> বিশেষ ছাড়</li>
+          <li><span class="check">✓</span> SLA গ্যারান্টি</li>
+          <li><span class="check">✓</span> মাসিক রিপোর্ট</li>
+        </ul>
+        <a href="#" class="btn-price outline">আমাদের সাথে যোগাযোগ করুন</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAYMENT METHODS -->
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">পেমেন্ট পদ্ধতি</div>
+      <h2 class="section-title">যেকোনো উপায়ে পেমেন্ট করুন</h2>
+      <p class="section-sub">বাংলাদেশি ও আন্তর্জাতিক সব পেমেন্ট গেটওয়ে সমর্থিত।</p>
+    </div>
+    <div class="pay-logos">
+      <div class="pay-logo">🟥 Bkash</div>
+      <div class="pay-logo">🟠 Nagad</div>
+      <div class="pay-logo">🟣 Rocket</div>
+      <div class="pay-logo">🔵 Upay</div>
+      <div class="pay-logo">🔵 Binance Pay</div>
+      <div class="pay-logo">💳 Visa / Mastercard</div>
+      <div class="pay-logo">🟡 Perfect Money</div>
+      <div class="pay-logo">🟢 PayPal</div>
+      <div class="pay-logo">🔵 Payoneer</div>
+      <div class="pay-logo">🔵 Cryptomus</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background: var(--bg2);">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">কাস্টমার রিভিউ</div>
+      <h2 class="section-title">তারা আমাদের বিশ্বাস করেন</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">"আমি অনেক SMM প্যানেল ব্যবহার করেছি, কিন্তু DUOBoost সত্যিই আলাদা। ডেলিভারি অবিশ্বাস্য দ্রুত এবং দাম একদম সাশ্রয়ী।"</div>
+        <div class="test-author">
+          <div class="test-avatar">RA</div>
+          <div><div class="test-name">রাফি আহমেদ</div><div class="test-role">ফ্রিল্যান্স মার্কেটার, ঢাকা</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">"রিসেলার হিসেবে প্রতিদিন শত শত অর্ডার করি। API একদম সহজ এবং সার্ভার কখনো ডাউন হয় না। সেরা প্যানেল।"</div>
+        <div class="test-author">
+          <div class="test-avatar">SK</div>
+          <div><div class="test-name">সুমাইয়া খানম</div><div class="test-role">SMM এজেন্সি মালিক, চট্টগ্রাম</div></div>
+        </div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">"Bkash দিয়ে পেমেন্ট করি, ৫ মিনিটে ব্যালেন্স আসে। কাস্টমার সার্ভিস রাত ৩টায়ও রেসপন্ড করে। অসাধারণ সার্ভিস!"</div>
+        <div class="test-author">
+          <div class="test-avatar">MH</div>
+          <div><div class="test-name">মেহেদী হাসান</div><div class="test-role">কন্টেন্ট ক্রিয়েটর, সিলেট</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="section-inner">
+    <div class="section-head">
+      <div class="section-tag">সাধারণ প্রশ্ন</div>
+      <h2 class="section-title">প্রশ্নোত্তর</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">SMM প্যানেল কি নিরাপদ? <span class="arrow">+</span></button>
+        <div class="faq-a">হ্যাঁ, সম্পূর্ণ নিরাপদ। আমরা আপনার কোনো পাসওয়ার্ড চাই না। শুধু পোস্ট বা প্রোফাইলের পাবলিক লিংক দিয়েই সার্ভিস নিতে পারবেন।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">ডেলিভারি কতক্ষণে হয়? <span class="arrow">+</span></button>
+        <div class="faq-a">বেশিরভাগ সার্ভিস অর্ডার দেওয়ার কয়েক মিনিটের মধ্যেই শুরু হয়। সাধারণত ২৪ ঘণ্টার মধ্যে সম্পূর্ণ ডেলিভারি হয়ে যায়।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">বাংলাদেশ থেকে কীভাবে পেমেন্ট করব? <span class="arrow">+</span></button>
+        <div class="faq-a">আপনি Bkash, Nagad, Rocket, Upay এবং অন্যান্য মোবাইল ব্যাংকিং ব্যবহার করে সহজেই পেমেন্ট করতে পারবেন।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">রিফান্ড পাওয়া যায়? <span class="arrow">+</span></button>
+        <div class="faq-a">যদি আমাদের কোনো কারণে ডেলিভারি না হয়, তাহলে সম্পূর্ণ রিফান্ড প্রদান করা হবে। আমরা মানি-ব্যাক গ্যারান্টি দিই।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">API কি পাওয়া যায়? <span class="arrow">+</span></button>
+        <div class="faq-a">হ্যাঁ, আমাদের সম্পূর্ণ API ডকুমেন্টেশন রয়েছে। রিসেলাররা তাদের নিজস্ব প্যানেলের সাথে আমাদের সার্ভিস সংযুক্ত করতে পারবেন।</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">ড্রিপ-ফিড কী? <span class="arrow">+</span></button>
+        <div class="faq-a">ড্রিপ-ফিড হলো ধীরে ধীরে স্বাভাবিকভাবে ফলোয়ার/লাইক বাড়ানোর পদ্ধতি। যেমন, ১০০০ ফলোয়ারকে ১০ দিনে প্রতিদিন ১০০ করে ডেলিভারি দেওয়া।</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-glow"></div>
+  <div style="position:relative;z-index:1;">
+    <div class="section-tag" style="text-align:center">আজই শুরু করুন</div>
+    <h2>আপনার সোশ্যাল মিডিয়া<br>রকেটের গতিতে বাড়ান!</h2>
+    <p>হাজার হাজার বাংলাদেশি ইনফ্লুয়েন্সার, ব্যবসা ও রিসেলাররা আমাদের বিশ্বাস করেন।</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn-primary" style="font-size:17px;padding:16px 40px;">ফ্রি অ্যাকাউন্ট খুলুন</a>
+      <a href="#services" class="btn-outline" style="font-size:17px;padding:16px 40px;">সার্ভিস দেখুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="logo">DUOBoost</a>
+        <p>বাংলাদেশের সেরা SMM প্যানেল। সোশ্যাল মিডিয়া গ্রোথকে সহজ, সাশ্রয়ী ও কার্যকর করাই আমাদের লক্ষ্য।</p>
+        <div style="margin-top:16px;display:flex;gap:12px;">
+          <a href="https://t.me/" style="color:var(--accent);font-size:13px;">Telegram</a>
+          <a href="#" style="color:var(--muted);font-size:13px;">Facebook</a>
+          <a href="#" style="color:var(--muted);font-size:13px;">WhatsApp</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>কোম্পানি</h5>
+        <a href="#">আমাদের সম্পর্কে</a>
+        <a href="#">ব্লগ</a>
+        <a href="#">অ্যাফিলিয়েট</a>
+        <a href="#">যোগাযোগ</a>
+      </div>
+      <div class="footer-col">
+        <h5>সার্ভিস</h5>
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">TikTok</a>
+        <a href="#">API ডকস</a>
+      </div>
+      <div class="footer-col">
+        <h5>সহায়তা</h5>
+        <a href="#">সাপোর্ট টিকেট</a>
+        <a href="#">FAQ</a>
+        <a href="#">শর্তাবলি</a>
+        <a href="#">গোপনীয়তা নীতি</a>
+        <a href="#">রিফান্ড নীতি</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © ২০২৬ DUOBoost — সর্বস্বত্ব সংরক্ষিত। ট্রেড লাইসেন্স: TRAD/DHK/0012/2026
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleFaq(btn) {
+  const ans = btn.nextElementSibling;
+  const isOpen = ans.classList.contains('show');
+  document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('show'));
+  document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+  if (!isOpen) { ans.classList.add('show'); btn.classList.add('open'); }
+}
+
+// Animate stats on scroll
+const nums = document.querySelectorAll('.stat-num');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.3 });
+nums.forEach(n => { n.style.opacity = '0'; n.style.transform = 'translateY(20px)'; n.style.transition = 'all 0.6s ease'; observer.observe(n); });
+
+// Scroll reveal for cards
+const cards = document.querySelectorAll('.feat-card, .service-card, .step, .test-card');
+const rev = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) { setTimeout(() => { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }, i*80); }
+  });
+}, { threshold: 0.1 });
+cards.forEach(c => { c.style.opacity='0'; c.style.transform='translateY(24px)'; c.style.transition='all 0.5s ease'; rev.observe(c); });
+</script>
+</body>
+</html>
